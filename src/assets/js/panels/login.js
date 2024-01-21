@@ -64,11 +64,45 @@ class Login {
         console.log('Initializing offline login...');
         let popupLogin = new popup();
         let loginOffline = document.querySelector('.login-offline');
-
+        
         let emailOffline = document.querySelector('.email-offline');
         let connectOffline = document.querySelector('.connect-offline');
         loginOffline.style.display = 'block';
 
+        let loginMicrosoft = document.querySelector('.login-home');
+        let loginHome = document.querySelector('.login-home');
+        let microsoftBtn = document.querySelector('.connect-home');
+        loginMicrosoft.style.display = 'block';
+        loginMicrosoft.style.marginTop = '-430px';
+
+
+        //Microsoft handle
+        microsoftBtn.addEventListener("click", () => {
+            popupLogin.openPopup({
+                title: 'Connexion',
+                content: 'Veuillez patienter...',
+                color: 'var(--color)'
+            });
+
+            ipcRenderer.invoke('Microsoft-window', this.config.client_id).then(async account_connect => {
+                if (account_connect == 'cancel' || !account_connect) {
+                    popupLogin.closePopup();
+                    return;
+                } else {
+                    await this.saveData(account_connect)
+                    popupLogin.closePopup();
+                }
+
+            }).catch(err => {
+                popupLogin.openPopup({
+                    title: 'Erreur',
+                    content: err,
+                    options: true
+                });
+            });
+        })
+
+        //CRACK HANDLE
         connectOffline.addEventListener('click', async () => {
             if (emailOffline.value.length < 3) {
                 popupLogin.openPopup({

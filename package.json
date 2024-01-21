@@ -1,20 +1,20 @@
 {
-    "name": "Selvania-Launcher",
-    "preductname": "Selvania Launcher",
+    "name": "MC-Launcher",
+    "preductname": "MC Launcher",
     "version": "2.0.0",
-    "description": "Launcher Mincraft pour le serveur Selvania",
+    "description": "Launcher Mincraft pour le serveur MC",
     "main": "src/app.js",
     "author": {
-        "name": "luuxis, Inc.",
-        "email": "contact@luuxis.fr",
-        "url": "https://github.com/luuxis"
+        "name": "utrosh",
+        "email": "support@mhosting.fr",
+        "url": "https://github.com/utrosh"
     },
-    "url": "http://launcher.luuxis.fr/launcherSelvania",
+    "url": "http://a.glorymc.fr/",
     "scripts": {
         "start": "cross-env-shell NODE_ENV=dev electron .",
         "dev": "cross-env-shell DEV_TOOL=open nodemon --exec npm start",
         "build": "node build.js --obf=false --build=platform",
-        "icon": "node build.js --icon=https://raw.githubusercontent.com/luuxis/Selvania-Launcher/master/src/assets/images/icon.png"
+        "icon": "node build.js --icon=https://raw.githubusercontent.com/uInstance/MC-Launcher/master/src/assets/images/icon.png"
     },
     "license": "CCANC",
     "nodemonConfig": {
@@ -39,6 +39,6 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/luuxis/Selvania-Launcher.git"
+        "url": "git+https://github.com/uInstance/MC-Launcher.git"
     }
 }
